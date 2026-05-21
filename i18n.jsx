@@ -480,6 +480,8 @@ const PILLAR_ML = [
 ];
 
 const ARCHIVE_ML = [
+  { platform: "INSTAGRAM", topic: "ഭരണം", iso: "2026-05-21", date: "മേയ് 21, 2026", title: "ഒരുമിച്ച് ഒരു ദിവസം പഞ്ചായത്തിൽ", outlet: "@a_day_together_in_panchayat", duration: "റീൽ", url: "https://www.instagram.com/reel/DYkgYC2v_5n/", quote: "#maitreyan #democracy #localgovernment #panchayat" },
+  { platform: "YOUTUBE", topic: "ഭരണം", iso: "2026-05-20", date: "മേയ് 20, 2026", title: "സുപ്രീം കോടതിയല്ല, ജനങ്ങളാണ് സുപ്രീം | Maitreyan", outlet: "Kerala Freethinkers Forum (kftf)", duration: "5മി 44സെ", url: "https://www.youtube.com/watch?v=UBO-8fkuzOA", videoId: "UBO-8fkuzOA" },
   { platform: "YOUTUBE", topic: "ഭരണം", iso: "2026-05-18", date: "മേയ് 18, 2026", title: "ജീവിതം, കുടുംബം, ജനാധിപത്യം. മൈത്രേയൻ പഞ്ചായത്തിൽ PART-2", outlet: "thaddesam", duration: "16മി 50സെ", url: "https://www.youtube.com/watch?v=thkL8v_b-9s", videoId: "thkL8v_b-9s" },
   { platform: "YOUTUBE", topic: "ഭരണം", iso: "2026-05-15", date: "മേയ് 15, 2026", title: "പഞ്ചായത്ത് ചർച്ചകൾ മൈത്രേയനോടൊപ്പം — ഭാഗം 2 (തൃശ്ശൂർ · ലോറി ബേക്കർ ഹാൾ)", outlet: "A Day Together in Panchayat", duration: "28മി 21സെ", url: "https://www.youtube.com/watch?v=DkAyvWZmJqI", videoId: "DkAyvWZmJqI" },
   { platform: "YOUTUBE", topic: "ഭരണം", iso: "2026-05-14", date: "മേയ് 14, 2026", title: "ജീവിതം, കുടുംബം, ജനാധിപത്യം — മൈത്രേയൻ പഞ്ചായത്തിൽ", outlet: "thaddesam", duration: "16മി 41സെ", url: "https://www.youtube.com/watch?v=peaccHyTOxM", videoId: "peaccHyTOxM" },

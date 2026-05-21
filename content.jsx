@@ -112,6 +112,28 @@ const ROADMAP = [
    the entry sorts to the end. */
 const ARCHIVE = [
   {
+    platform: "INSTAGRAM",
+    topic: "GOVERNANCE",
+    iso: "2026-05-21",
+    date: "MAY 21, 2026",
+    title: "A Day Together in Panchayat",
+    outlet: "@a_day_together_in_panchayat",
+    duration: "REEL",
+    url: "https://www.instagram.com/reel/DYkgYC2v_5n/",
+    quote: "#maitreyan #democracy #localgovernment #panchayat"
+  },
+  {
+    platform: "YOUTUBE",
+    topic: "GOVERNANCE",
+    iso: "2026-05-20",
+    date: "MAY 20, 2026",
+    title: "സുപ്രീം കോടതിയല്ല, ജനങ്ങളാണ് സുപ്രീം | Maitreyan",
+    outlet: "Kerala Freethinkers Forum (kftf)",
+    duration: "5m 44s",
+    url: "https://www.youtube.com/watch?v=UBO-8fkuzOA",
+    videoId: "UBO-8fkuzOA"
+  },
+  {
     platform: "YOUTUBE",
     topic: "GOVERNANCE",
     iso: "2026-05-18",
