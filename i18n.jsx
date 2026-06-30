@@ -10,6 +10,7 @@ const STRINGS = {
     nav_faq:     "FAQ",
     nav_join:    "Get Involved",
     nav_search:  "SEARCH",
+    nav_menu:    "Menu",
 
     /* hero */
     hero_eyebrow: "A Concept Paper · Initiated 2026 · Kerala, India",
@@ -169,6 +170,9 @@ const STRINGS = {
     jp_form_phone: "WhatsApp number",
     jp_form_phone_ph: "10-digit mobile",
     jp_form_phone_error: "Please enter a valid 10-digit Indian mobile number.",
+    jp_form_name_error: "Please enter your name.",
+    jp_form_district_error: "Please select your district.",
+    jp_form_body_name_error: "Please enter the name of your local body.",
     jp_form_email: "Email",
     jp_form_email_optional: "OPTIONAL",
     jp_form_email_ph: "you@example.com",
@@ -235,6 +239,7 @@ const STRINGS = {
     nav_faq:     "പൊതുവായ സംശയങ്ങൾ",
     nav_join:    "പങ്കാളിയാകുക",
     nav_search:  "തിരയുക",
+    nav_menu:    "മെനു",
 
     hero_eyebrow: "ഒരു ആശയ രേഖ · ആരംഭം 2026 · കേരളം",
     hero_h_pre:   "പ്രാദേശിക",
@@ -383,6 +388,9 @@ const STRINGS = {
     jp_form_phone: "WhatsApp നമ്പർ",
     jp_form_phone_ph: "10 അക്ക മൊബൈൽ",
     jp_form_phone_error: "സാധുവായ 10-അക്ക ഇന്ത്യൻ മൊബൈൽ നമ്പർ നൽകുക.",
+    jp_form_name_error: "നിങ്ങളുടെ പേര് നൽകുക.",
+    jp_form_district_error: "നിങ്ങളുടെ ജില്ല തിരഞ്ഞെടുക്കുക.",
+    jp_form_body_name_error: "നിങ്ങളുടെ തദ്ദേശ സ്ഥാപനത്തിന്റെ പേര് നൽകുക.",
     jp_form_email: "ഇമെയിൽ",
     jp_form_email_optional: "ഐച്ഛികം",
     jp_form_email_ph: "you@example.com",

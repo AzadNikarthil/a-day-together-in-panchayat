@@ -6,6 +6,19 @@
 <title>POD — Reimagining Local Governance</title>
 <meta name="description" content="A grassroots movement to build parallel, citizen-centric institutions at the panchayat level in Kerala, India. Four pillars. A five-year prototype. Public-space democracy, daily." />
 
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+<!-- social sharing -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="POD — Reimagining Local Governance" />
+<meta property="og:description" content="A grassroots movement to build parallel, citizen-centric institutions at the panchayat level in Kerala. Four pillars. A five-year prototype. Public-space democracy, daily." />
+<meta property="og:url" content="https://a-day-together-in-panchayat.web.app/" />
+<meta property="og:image" content="https://a-day-together-in-panchayat.web.app/uploads/hero.jpg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="POD — Reimagining Local Governance" />
+<meta name="twitter:description" content="Parallel, citizen-centric institutions at the panchayat level in Kerala. Four pillars. A five-year prototype." />
+<meta name="twitter:image" content="https://a-day-together-in-panchayat.web.app/uploads/hero.jpg" />
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Noto+Serif+Malayalam:wght@400;500;700&display=swap" rel="stylesheet" />
@@ -13,7 +26,16 @@
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<div id="root"></div>
+<div id="root">
+  <!-- Static fallback: shown to crawlers and during first paint, then
+       replaced by the React app on mount. Keep in sync with the hero copy. -->
+  <section class="hero container" id="top">
+    <div class="eyebrow">A Concept Paper · Initiated 2026 · Kerala, India</div>
+    <h1 class="h-display" style="margin:28px 0 0">Reimagining <span class="terra serif-it">local</span> governance.</h1>
+    <p class="lead" style="margin-top:32px;max-width:640px">We are moving away from the colonial <em>ruling</em> mentality toward a <em>community-regulating</em> society — building parallel, citizen-centric institutions <em>by</em>, and <em>for</em>, the people.</p>
+    <p class="body" style="margin-top:24px"><a class="btn" href="uploads/pod-concept-paper.pdf">Read the Concept Paper</a></p>
+  </section>
+</div>
 
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>

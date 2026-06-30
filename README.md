@@ -15,36 +15,39 @@ Early. The Knowledge Hub entries and the concept paper PDF are real content; mos
 
 ## Tech
 
-Plain HTML + CDN React 18 + Babel-in-browser JSX. **No build step.** The browser transpiles JSX on load.
+Plain HTML + React 18 + global-scope JSX, **precompiled** at deploy time (a light `build.mjs` step — no in-browser Babel, no ES-module rewrite). The source files stay simple; `build.mjs` Babel-compiles + minifies them into one bundle per page and emits a ready-to-serve `dist/`.
 
 ```
 index.html       join.html        styles.css
 app.jsx          join.jsx
 sections.jsx     sections2.jsx    tweaks-panel.jsx
 content.jsx      i18n.jsx
+build.mjs        package.json     favicon.svg
 uploads/         (concept paper PDF + hero image)
+dist/            (build output — gitignored)
 ```
 
-`content.jsx` holds the English archive data; `i18n.jsx` holds all UI strings and the Malayalam archive data.
+`content.jsx` holds the English archive data; `i18n.jsx` holds all UI strings and the Malayalam archive data. **Edit the `.jsx` files, not `dist/`.**
 
 ## Run locally
 
 ```bash
-python3 -m http.server 8000
-# open http://localhost:8000/
+npm install        # first time only
+npm run watch      # rebuilds dist/ on change
+npm run serve      # serves dist/ at http://localhost:8000 (separate terminal)
 ```
 
-`file://` doesn't work — Babel refuses CORS-blocked scripts, so a real HTTP server is required.
+(`npm run build` for a one-shot build.) `file://` doesn't work — a real HTTP server is required.
 
 ## Deploy
 
 Firebase Hosting, project `a-day-together-in-panchayat`.
 
 ```bash
-firebase deploy --only hosting
+npm run deploy     # build, then firebase deploy --only hosting
 ```
 
-The repo's `firebase.json` sets `no-cache` on HTML/CSS/JSX and 24h caching on `uploads/**`.
+The repo's `firebase.json` serves `dist/`, sets `no-cache` on HTML/CSS/JS, long caching on `/vendor/**`, and 24h on `uploads/**`.
 
 ## Contributing content
 

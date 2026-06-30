@@ -5,10 +5,20 @@ const { useState, useMemo, useEffect, useRef } = React;
 /* ───── nav ───── */
 function Nav({ lang, setLang, onSearch }) {
   const t = useT();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const links = [
+    ["#pillars", t.nav_pillars],
+    ["#method",  t.nav_method],
+    ["#roadmap", t.nav_roadmap],
+    ["#archive", t.nav_archive],
+    ["#faq",     t.nav_faq],
+    ["#join",    t.nav_join],
+  ];
+  const close = () => setMenuOpen(false);
   return (
     <nav className="nav">
       <div className="nav-inner">
-        <a className="brand" href="#top">
+        <a className="brand" href="#top" onClick={close}>
           <span className="brand-mark">
             <svg viewBox="0 0 28 28" width="28" height="28" aria-hidden="true">
               <circle cx="14" cy="14" r="13" fill="none" stroke="currentColor" strokeWidth="1.2"/>
@@ -26,18 +36,13 @@ function Nav({ lang, setLang, onSearch }) {
         </a>
 
         <div className="nav-links">
-          <a href="#pillars">{t.nav_pillars}</a>
-          <a href="#method">{t.nav_method}</a>
-          <a href="#roadmap">{t.nav_roadmap}</a>
-          <a href="#archive">{t.nav_archive}</a>
-          <a href="#faq">{t.nav_faq}</a>
-          <a href="#join">{t.nav_join}</a>
+          {links.map(([href, label]) => <a key={href} href={href}>{label}</a>)}
         </div>
 
         <div className="nav-actions">
           <button
             className="chip"
-            onClick={onSearch}
+            onClick={() => { close(); onSearch(); }}
             aria-label="Search archive"
             style={{ padding: "6px 12px" }}
           >
@@ -51,7 +56,22 @@ function Nav({ lang, setLang, onSearch }) {
             <button className={lang === "en" ? "is-active" : ""} onClick={() => setLang("en")}>EN</button>
             <button className={lang === "ml" ? "is-active" : ""} onClick={() => setLang("ml")}>മല</button>
           </div>
+          <button
+            className={`nav-toggle ${menuOpen ? "is-open" : ""}`}
+            onClick={() => setMenuOpen(o => !o)}
+            aria-label={t.nav_menu || "Menu"}
+            aria-expanded={menuOpen}
+            aria-controls="nav-mobile"
+          >
+            <span className="nav-toggle-bars" aria-hidden="true"><span /><span /><span /></span>
+          </button>
         </div>
+      </div>
+
+      <div id="nav-mobile" className={`nav-mobile ${menuOpen ? "is-open" : ""}`} hidden={!menuOpen}>
+        {links.map(([href, label]) => (
+          <a key={href} href={href} onClick={close}>{label}</a>
+        ))}
       </div>
     </nav>
   );

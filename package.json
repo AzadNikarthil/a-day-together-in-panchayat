@@ -1,0 +1,21 @@
+{
+  "name": "pod-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "POD — Reimagining Local Governance. Static site, precompiled (no in-browser Babel).",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "watch": "node build.mjs --watch",
+    "serve": "python3 -m http.server 8000 --directory dist",
+    "deploy": "npm run build && firebase deploy --only hosting"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/plugin-transform-block-scoping": "^7.25.0",
+    "@babel/preset-react": "^7.26.0",
+    "esbuild": "^0.24.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  }
+}

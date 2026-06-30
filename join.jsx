@@ -40,14 +40,29 @@ function JoinForm({ onDone }) {
     bodyType: "Panchayat",   /* stays English internally; UI shows localized label */
     bodyName: ""
   });
-  const [phoneError, setPhoneError] = useStateJP(false);
+  const [errors, setErrors] = useStateJP({});
   const [submitting, setSubmitting] = useStateJP(false);
   const [submitError, setSubmitError] = useStateJP(false);
 
-  const set = (k, v) => setForm(prev => ({ ...prev, [k]: v }));
+  /* update a field and clear its error as the user corrects it */
+  const set = (k, v) => {
+    setForm(prev => ({ ...prev, [k]: v }));
+    if (errors[k]) setErrors(prev => { const next = { ...prev }; delete next[k]; return next; });
+  };
 
   /* simple but real Indian-mobile validation: must be 10 digits, leading 6-9 */
   const validatePhone = (p) => /^[6-9]\d{9}$/.test(p.replace(/\D/g, ""));
+
+  /* The form sets noValidate, so native `required` never fires — every
+     required field is checked here. Returns an { field: message } map. */
+  const validate = () => {
+    const e = {};
+    if (!form.name.trim())            e.name = t.jp_form_name_error;
+    if (!validatePhone(form.phone))   e.phone = t.jp_form_phone_error;
+    if (!form.district)               e.district = t.jp_form_district_error;
+    if (!form.bodyName.trim())        e.bodyName = t.jp_form_body_name_error;
+    return e;
+  };
 
   const bodyTypeIndex = ["Panchayat", "Municipality", "Corporation"].indexOf(form.bodyType);
 
@@ -59,8 +74,15 @@ function JoinForm({ onDone }) {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    if (!validatePhone(form.phone)) { setPhoneError(true); return; }
-    setPhoneError(false);
+    const found = validate();
+    if (Object.keys(found).length) {
+      setErrors(found);
+      /* move focus to the first invalid field so keyboard / SR users land on it */
+      const first = ["name", "phone", "district", "bodyName"].find(k => found[k]);
+      document.getElementById(first === "bodyName" ? "jp-body-name" : `jp-${first}`)?.focus();
+      return;
+    }
+    setErrors({});
     if (submitting) return;
     setSubmitting(true);
     setSubmitError(false);
@@ -98,16 +120,19 @@ function JoinForm({ onDone }) {
           type="text"
           autoComplete="name"
           required
+          aria-invalid={errors.name ? "true" : undefined}
+          aria-describedby={errors.name ? "jp-name-error" : undefined}
           value={form.name}
           onChange={(e) => set("name", e.target.value)}
           placeholder={t.jp_form_name_ph}
         />
+        {errors.name && <div className="jp-error" id="jp-name-error" role="alert">{errors.name}</div>}
       </div>
 
       {/* row 2: phone with locked +91 prefix */}
       <div className="jp-field">
         <label htmlFor="jp-phone">{t.jp_form_phone}</label>
-        <div className={`jp-phone-input ${phoneError ? "is-error" : ""}`}>
+        <div className={`jp-phone-input ${errors.phone ? "is-error" : ""}`}>
           <span className="jp-phone-prefix mono">+91</span>
           <input
             id="jp-phone"
@@ -117,12 +142,14 @@ function JoinForm({ onDone }) {
             maxLength={10}
             autoComplete="tel-national"
             required
+            aria-invalid={errors.phone ? "true" : undefined}
+            aria-describedby={errors.phone ? "jp-phone-error" : undefined}
             value={form.phone}
-            onChange={(e) => { set("phone", e.target.value.replace(/\D/g, "").slice(0, 10)); if (phoneError) setPhoneError(false); }}
+            onChange={(e) => set("phone", e.target.value.replace(/\D/g, "").slice(0, 10))}
             placeholder={t.jp_form_phone_ph}
           />
         </div>
-        {phoneError && <div className="jp-error">{t.jp_form_phone_error}</div>}
+        {errors.phone && <div className="jp-error" id="jp-phone-error" role="alert">{t.jp_form_phone_error}</div>}
       </div>
 
       {/* row 3: email (optional) */}
@@ -148,6 +175,8 @@ function JoinForm({ onDone }) {
           <select
             id="jp-district"
             required
+            aria-invalid={errors.district ? "true" : undefined}
+            aria-describedby={errors.district ? "jp-district-error" : undefined}
             value={form.district}
             onChange={(e) => set("district", e.target.value)}
           >
@@ -162,6 +191,7 @@ function JoinForm({ onDone }) {
             <path d="M1 1l5 5 5-5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </div>
+        {errors.district && <div className="jp-error" id="jp-district-error" role="alert">{errors.district}</div>}
       </div>
 
       {/* row 5: local body — segmented type + body-name input */}
@@ -184,13 +214,17 @@ function JoinForm({ onDone }) {
           })}
         </div>
         <input
+          id="jp-body-name"
           className="jp-body-name"
           type="text"
           required
+          aria-invalid={errors.bodyName ? "true" : undefined}
+          aria-describedby={errors.bodyName ? "jp-body-name-error" : undefined}
           value={form.bodyName}
           onChange={(e) => set("bodyName", e.target.value)}
           placeholder={bodyNamePlaceholder}
         />
+        {errors.bodyName && <div className="jp-error" id="jp-body-name-error" role="alert">{errors.bodyName}</div>}
       </div>
 
       <button type="submit" className="btn jp-submit" disabled={submitting}>
