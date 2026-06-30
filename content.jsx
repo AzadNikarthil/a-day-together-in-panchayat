@@ -8,12 +8,12 @@ const PILLARS = [
     sub: "Citizen Support Center",
     replaces: "Police Station",
     becomes:  "Support Infrastructure",
-    intro: "Moving from coercion to care. The state currently meets every dispute with the same instrument — what the proposal calls “the gun.” The Kendram replaces it with dialogue, mediation, and community-backed support.",
+    intro: "Moving from coercion to care and support. The state currently meets every dispute with old instruments of coercion. The Kendram replaces these with democratic institutions of dialogue, mediation, and community-backed support.",
     points: [
-      "Conflict de-escalation as a first point of contact, before grievances become criminal cases.",
-      "Physical and psychological accessibility, integrated into daily ward life.",
-      "Preventive — not punitive — intervention in neighbourly friction.",
-      "Non-coercive resolution: removing the gun from the equation."
+      "Conflict de-escalation as a first point of contact, resolving disputes before grievances are locked into formal criminal cases.",
+      "Physical and psychological accessibility, integrated into daily life.",
+      "Preventive and restorative — rather than purely punitive — intervention that addresses the root causes and context of neighbourly friction, fostering a healing process instead of permanent hostility.",
+      "Non-coercive resolution: replacing old instruments of coercion with avenues for mutual reconciliation."
     ]
   },
   {
@@ -28,7 +28,7 @@ const PILLARS = [
       "Preventive mediation that intervenes early, before disagreements harden into legal cases.",
       "Community-led arbitration by respected, locally-elected individuals.",
       "Reconciliation over verdicts — no winners, no losers, both parties coexist.",
-      "Non-permanent panels rotated by case to prevent accumulation of bias."
+      "Non-permanent panels rotated by case to prevent accumulation of bias and power."
     ]
   },
   {
@@ -38,12 +38,25 @@ const PILLARS = [
     sub: "Citizen-Building Education",
     replaces: "Colonial Schooling",
     becomes:  "Civic Practice",
-    intro: "From job-seekers to active citizens. An educational model that teaches constitutional literacy, public behaviour, and real-world civic responsibility — the community, not the four-walled classroom, as the textbook.",
+    intro: "From job-seekers to citizens. Colonial schooling was built to manufacture obedient workers and exam-takers. Pauranirmanam rebuilds education as the practice of citizenship — where the community and its surroundings become the classroom and constitutional life is learned by living it, not memorising something.",
     points: [
-      "Community-centric learning: local ecology and infrastructure as primary textbooks.",
-      "Constitutional literacy and non-violent communication as core subjects.",
-      "Critical inquiry over rote — observation, project-based, locally rooted.",
-      "Democratising the home and school so children participate in shaping society."
+      "The community as textbook — local nature, institutions, and everyday public life as the primary curriculum.",
+      "Constitutional values rooted in equality: A value system based on the constitution, with equality serving as the fundamental foundation of this learning.",
+      "Inquiry over rote-learning rooted in observation, projects, and the child's own surroundings.",
+      "Democratised homes and classrooms where children practise shaping society, not just preparing for it."
+    ]
+  },
+  {
+    num: "04",
+    mal: "ആരോഗ്യ ചികിൽസാ കേന്ദ്രം",
+    en:  "Arogya-Chikitsa Kendram",
+    sub: "Community Health & Treatment Center",
+    replaces: "Privatised Healthcare",
+    becomes:  "Panchayat-Run Care",
+    intro: "From a public good to a private asset. Kerala's strong public health system — built over decades with taxpayer money — is being quietly privatised through insurance and corporate 'partnership' deals. The Kendram answers with a panchayat-run treatment and health-care center: local, public, and affordable to the community it serves.",
+    points: [
+      "Panchayat-run public hospitals and health centers, kept directly accountable to the citizen rather than handed to corporate operators.",
+      "Affordable, in-person treatment so that working families are not pushed into insurance dependence for basic care."
     ]
   }
 ];
@@ -67,11 +80,11 @@ const ROADMAP = [
     year: "Year 2–3",
     title: "Institution Prototyping",
     items: [
-      ["Active testing.", " The three institutions transition from theory to functional units in select wards."],
+      ["Active testing.", " The four institutions transition from theory to functional units in select wards."],
       ["Local governance audits.", " Move past the 10% quorum check-box toward meaningful community consensus."],
       ["Address colonial residue.", " Mediation, support, and dialogue prioritised over punishment in every case."]
     ],
-    stat: "3",
+    stat: "4",
     statSub: "live prototypes across pilot panchayats",
     side: "Each panchayat is treated as a lab. Failure is data — every setback recalibrates the model rather than ending it."
   },

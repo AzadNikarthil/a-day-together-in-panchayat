@@ -114,7 +114,7 @@ function Shift() {
           <Eyebrow>{t.shift_eyebrow}</Eyebrow>
         </div>
         <div>
-          <h2 className="h-1" style={{ margin: 0 }}>
+          <h2 className="h-2" style={{ margin: 0 }}>
             {t.shift_h_pre}
             <span className="serif-it" style={{ color: "var(--terra)" }}> {t.shift_h_em} </span>
             {t.shift_h_post}
@@ -122,26 +122,22 @@ function Shift() {
 
           <div className="spacer-lg" />
 
-          <div className="split-2">
-            <div>
+          <div className="shift-cols">
+            <div className="shift-col">
               <Eyebrow>{t.shift_old_h}</Eyebrow>
-              <ul className="stack" style={{ listStyle: "none", padding: 0, marginTop: 16 }}>
-                {t.shift_old.map(([h, d]) => (
-                  <li key={h} className="body">
-                    <strong className="ink" style={{ fontWeight: 500 }}>{h}</strong> {d}
-                  </li>
-                ))}
-              </ul>
+              {t.shift_old.map(([h, d]) => (
+                <p key={h} className="body shift-item">
+                  <strong className="ink" style={{ fontWeight: 500 }}>{h}</strong> {d}
+                </p>
+              ))}
             </div>
-            <div>
+            <div className="shift-col">
               <Eyebrow>{t.shift_new_h}</Eyebrow>
-              <ul className="stack" style={{ listStyle: "none", padding: 0, marginTop: 16 }}>
-                {t.shift_new.map(([h, d]) => (
-                  <li key={h} className="body">
-                    <strong style={{ color: "var(--terra)", fontWeight: 500 }}>{h}</strong> <span className="ink">{d}</span>
-                  </li>
-                ))}
-              </ul>
+              {t.shift_new.map(([h, d]) => (
+                <p key={h} className="body shift-item">
+                  <strong style={{ color: "var(--terra)", fontWeight: 500 }}>{h}</strong> <span className="ink">{d}</span>
+                </p>
+              ))}
             </div>
           </div>
         </div>
